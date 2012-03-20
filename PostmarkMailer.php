@@ -136,9 +136,9 @@ class PostmarkMailer extends \Nette\Object implements \Nette\Mail\IMailer
 
 		foreach ($message->getAttachments() as $attachment) {
 			$filename = $attachment->getHeader('Content-Disposition');
-			$filename = str_replace(array('"', 'filename='), array('', ''), explode('; ',$filename[0]));
+			$filename = \Nette\Utils\Strings::match($filename, '~\"(.*?)\"~');
 			$data['Attachments'][] = array(
-				'Name' => $filename,
+				'Name' => $filename[1],
 				'Content' => base64_encode($attachment->body),
 				'ContentType' => $attachment->getHeader('Content-Type')
 			);
