@@ -96,7 +96,7 @@ class PostmarkMailer extends \Nette\Object implements \Nette\Mail\IMailer
 	}
 
 	/**
-	 * Crates JSON for Nette\Mail|Message
+	 * Crates JSON for Nette\Mail\Message
 	 *
 	 * @param \Nette\Mail\Message $message
 	 * @return string
